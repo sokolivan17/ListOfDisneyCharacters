@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct Characters: Decodable {
+    let data: [Character]
+}
+
+struct Character: Decodable {
+    let name: String
+    let imageUrl: String
+}
