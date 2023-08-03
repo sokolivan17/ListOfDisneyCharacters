@@ -13,13 +13,13 @@ protocol MainViewProtocol: AnyObject {
 }
 
 protocol MainViewPresenterProtocol: AnyObject {
-    var characters: Characters? { get set }
+    var characters: [Character]? { get set }
     init(view: MainViewProtocol, networkService: NetworkServiceProtocol)
     func getCharacters()
 }
 
 class MainPresenter: MainViewPresenterProtocol {
-    var characters: Characters?
+    var characters: [Character]?
     weak var view: MainViewProtocol?
     let networkService: NetworkServiceProtocol!
 

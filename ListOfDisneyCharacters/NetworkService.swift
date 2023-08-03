@@ -8,11 +8,11 @@
 import Foundation
 
 protocol NetworkServiceProtocol {
-    func getCharacters(completion: @escaping (Result<Characters?, Error>) -> Void)
+    func getCharacters(completion: @escaping (Result<[Character]?, Error>) -> Void)
 }
 
 class NetworkService: NetworkServiceProtocol {
-    func getCharacters(completion: @escaping (Result<Characters?, Error>) -> Void) {
+    func getCharacters(completion: @escaping (Result<[Character]?, Error>) -> Void) {
         let urlString = "https://api.disneyapi.dev/character"
         guard let url = URL(string: urlString) else { return }
 
@@ -29,7 +29,8 @@ class NetworkService: NetworkServiceProtocol {
 
             do {
                 let obj = try JSONDecoder().decode(Characters.self, from: data)
-                completion(.success(obj))
+                let character = obj.data
+                completion(.success(character))
             } catch {
                 completion(.failure(error))
             }
