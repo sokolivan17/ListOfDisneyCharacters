@@ -16,6 +16,7 @@
 		B5AE61862A7BAE3E00C69AF3 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE61852A7BAE3E00C69AF3 /* NetworkService.swift */; };
 		B5AE61882A7BB02F00C69AF3 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE61872A7BB02F00C69AF3 /* MainPresenter.swift */; };
 		B5AE618A2A7BD43100C69AF3 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE61892A7BD43100C69AF3 /* ModuleBuilder.swift */; };
+		B5AE618C2A7CFA2C00C69AF3 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE618B2A7CFA2C00C69AF3 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		B5AE61852A7BAE3E00C69AF3 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		B5AE61872A7BB02F00C69AF3 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		B5AE61892A7BD43100C69AF3 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
+		B5AE618B2A7CFA2C00C69AF3 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				B5AE61852A7BAE3E00C69AF3 /* NetworkService.swift */,
 				B5AE61872A7BB02F00C69AF3 /* MainPresenter.swift */,
 				B5AE61732A7BA84C00C69AF3 /* ViewController.swift */,
+				B5AE618B2A7CFA2C00C69AF3 /* TableViewCell.swift */,
 				B5AE61892A7BD43100C69AF3 /* ModuleBuilder.swift */,
 				B5AE61782A7BA84E00C69AF3 /* Assets.xcassets */,
 				B5AE617A2A7BA84E00C69AF3 /* LaunchScreen.storyboard */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5AE61862A7BAE3E00C69AF3 /* NetworkService.swift in Sources */,
+				B5AE618C2A7CFA2C00C69AF3 /* TableViewCell.swift in Sources */,
 				B5AE61882A7BB02F00C69AF3 /* MainPresenter.swift in Sources */,
 				B5AE61742A7BA84C00C69AF3 /* ViewController.swift in Sources */,
 				B5AE61702A7BA84C00C69AF3 /* AppDelegate.swift in Sources */,

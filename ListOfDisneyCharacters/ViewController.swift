@@ -8,19 +8,34 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let cellId = "mvpCellId"
-    lazy var tableView = UITableView()
     var presenter: MainViewPresenterProtocol!
+
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .plain)
+        tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.dataSource = self
+        return tableView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        tableView.dataSource = self
+        setupHierarchy()
+        setupLayout()
     }
 
-    override func loadView() {
-        view = tableView
+    private func setupHierarchy() {
+        view.addSubview(tableView)
+    }
+
+    private func setupLayout() {
+        NSLayoutConstraint.activate([
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
 }
 
@@ -30,21 +45,9 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        let character = presenter.characters?[indexPath.row]
-
-        cell.textLabel?.text = character?.name
-
-        guard let imagePath = character?.imageUrl,
-              let imageURL = URL(string: imagePath),
-              let imageData = try? Data(contentsOf: imageURL)
-        else {
-            cell.imageView?.image = UIImage(systemName: "face.smiling")
-            return cell
-        }
-
-        cell.imageView?.image = UIImage(data: imageData)
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as? TableViewCell
+        cell?.character = presenter.characters?[indexPath.row]
+        return cell ?? UITableViewCell()
     }
 }
 
