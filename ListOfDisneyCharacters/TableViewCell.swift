@@ -71,9 +71,9 @@ class TableViewCell: UITableViewCell {
             characterName.bottomAnchor.constraint(equalTo: characterNameBackgroundView.bottomAnchor, constant: -5),
 
             characterImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            characterImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            characterImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             characterImage.widthAnchor.constraint(equalToConstant: contentView.frame.width - 30 - contentView.frame.width / 3),
-            characterImage.heightAnchor.constraint(equalTo: characterImage.widthAnchor, multiplier: 1.53),
+            characterImage.heightAnchor.constraint(equalToConstant: TableViewConstants.rowHeight - 20),
         ])
     }
 

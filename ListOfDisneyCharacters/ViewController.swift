@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     var presenter: MainViewPresenterProtocol!
 
     private lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .plain)
+        let tableView = UITableView(frame: .zero)
         tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
@@ -19,14 +19,20 @@ class ViewController: UIViewController {
         return tableView
     }()
 
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        setupNavigationBar()
+        setupHierarchy()
+        setupLayout()
+    }
+
+    // MARK: - Setup
+    private func setupNavigationBar() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Disney characters"
-
-        setupHierarchy()
-        setupLayout()
     }
 
     private func setupHierarchy() {
@@ -43,6 +49,7 @@ class ViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDataSource
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.characters.count
@@ -57,9 +64,10 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
+        return TableViewConstants.rowHeight
     }
 
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -67,6 +75,7 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
+// MARK: - MainViewProtocol
 extension ViewController: MainViewProtocol {
     func success() {
         tableView.reloadData()
@@ -75,4 +84,10 @@ extension ViewController: MainViewProtocol {
     func failure(error: Error) {
         print(error.localizedDescription)
     }
+}
+
+// MARK: - Enums
+
+enum TableViewConstants {
+    static let rowHeight: CGFloat = 200
 }
