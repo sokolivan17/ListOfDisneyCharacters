@@ -15,3 +15,15 @@ struct Character: Decodable {
     let name: String
     let imageUrl: String
 }
+
+
+class CharacterViewModel {
+    let title: String
+    let imageURL: URL?
+    var imageData: Data? = nil
+
+    init(title: String, imageURL: URL?) {
+        self.title = title
+        self.imageURL = imageURL
+    }
+}
