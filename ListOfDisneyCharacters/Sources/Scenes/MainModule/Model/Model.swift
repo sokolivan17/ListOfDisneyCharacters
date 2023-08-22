@@ -16,7 +16,6 @@ struct Character: Decodable {
     let imageUrl: String
 }
 
-
 class CharacterViewModel {
     let title: String
     let imageURL: URL?

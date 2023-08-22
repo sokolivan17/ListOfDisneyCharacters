@@ -18,7 +18,7 @@ protocol MainViewPresenterProtocol: AnyObject {
     func getCharacters()
 }
 
-class MainPresenter: MainViewPresenterProtocol {
+final class MainPresenter: MainViewPresenterProtocol {
     var characters = [CharacterViewModel]()
     weak var view: MainViewProtocol?
     let networkService: NetworkServiceProtocol!
@@ -29,7 +29,7 @@ class MainPresenter: MainViewPresenterProtocol {
         getCharacters()
     }
 
-    func getCharacters() {
+    public func getCharacters() {
         networkService.getCharacters { [weak self] result in
             DispatchQueue.main.async {
                 switch result {

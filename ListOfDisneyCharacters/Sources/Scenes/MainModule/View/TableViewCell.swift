@@ -8,9 +8,9 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-
     static var identifier = "Cell"
 
+    // MARK: - Properties
     private lazy var characterImage: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true

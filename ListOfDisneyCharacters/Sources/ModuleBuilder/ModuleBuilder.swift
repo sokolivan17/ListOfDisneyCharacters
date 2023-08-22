@@ -13,7 +13,7 @@ protocol Builder {
 
 class ModuleBuilder: Builder {
     static func createMainModule() -> UIViewController {
-        let view = ViewController()
+        let view = CharacterViewController()
         let networkService = NetworkService()
         let presenter = MainPresenter(view: view, networkService: networkService)
         view.presenter = presenter

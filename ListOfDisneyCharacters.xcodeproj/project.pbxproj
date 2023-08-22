@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B5AE61702A7BA84C00C69AF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE616F2A7BA84C00C69AF3 /* AppDelegate.swift */; };
 		B5AE61722A7BA84C00C69AF3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE61712A7BA84C00C69AF3 /* SceneDelegate.swift */; };
-		B5AE61742A7BA84C00C69AF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE61732A7BA84C00C69AF3 /* ViewController.swift */; };
+		B5AE61742A7BA84C00C69AF3 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE61732A7BA84C00C69AF3 /* CharacterViewController.swift */; };
 		B5AE61792A7BA84E00C69AF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5AE61782A7BA84E00C69AF3 /* Assets.xcassets */; };
 		B5AE617C2A7BA84E00C69AF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5AE617A2A7BA84E00C69AF3 /* LaunchScreen.storyboard */; };
 		B5AE61842A7BAE1200C69AF3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE61832A7BAE1200C69AF3 /* Model.swift */; };
@@ -23,7 +23,7 @@
 		B5AE616C2A7BA84C00C69AF3 /* ListOfDisneyCharacters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListOfDisneyCharacters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5AE616F2A7BA84C00C69AF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5AE61712A7BA84C00C69AF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B5AE61732A7BA84C00C69AF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B5AE61732A7BA84C00C69AF3 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		B5AE61782A7BA84E00C69AF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5AE617B2A7BA84E00C69AF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5AE617D2A7BA84E00C69AF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +45,111 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B50A2DF92A94B84200079DD3 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				B5AE61852A7BAE3E00C69AF3 /* NetworkService.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		B50A2DFA2A94B85100079DD3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B5AE616F2A7BA84C00C69AF3 /* AppDelegate.swift */,
+				B5AE61712A7BA84C00C69AF3 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B50A2DFB2A94B85900079DD3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				B5AE61872A7BB02F00C69AF3 /* MainPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		B50A2DFC2A94B86300079DD3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B5AE61832A7BAE1200C69AF3 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B50A2DFD2A94B86A00079DD3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B5AE61732A7BA84C00C69AF3 /* CharacterViewController.swift */,
+				B5AE618B2A7CFA2C00C69AF3 /* TableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B50A2DFE2A94B87300079DD3 /* ModuleBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				B5AE61892A7BD43100C69AF3 /* ModuleBuilder.swift */,
+			);
+			path = ModuleBuilder;
+			sourceTree = "<group>";
+		};
+		B50A2DFF2A94B8BF00079DD3 /* MainModule */ = {
+			isa = PBXGroup;
+			children = (
+				B50A2DFC2A94B86300079DD3 /* Model */,
+				B50A2DFB2A94B85900079DD3 /* Presenter */,
+				B50A2DFD2A94B86A00079DD3 /* View */,
+			);
+			path = MainModule;
+			sourceTree = "<group>";
+		};
+		B50A2E002A94B8E200079DD3 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				B50A2DFF2A94B8BF00079DD3 /* MainModule */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		B50A2E012A94B8F500079DD3 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B50A2DFA2A94B85100079DD3 /* App */,
+				B50A2E002A94B8E200079DD3 /* Scenes */,
+				B50A2DF92A94B84200079DD3 /* NetworkService */,
+				B50A2DFE2A94B87300079DD3 /* ModuleBuilder */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		B50A2E022A94B8FE00079DD3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B5AE61782A7BA84E00C69AF3 /* Assets.xcassets */,
+				B50A2E032A94B90600079DD3 /* Storyboards */,
+				B50A2E042A94B90E00079DD3 /* Configs */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B50A2E032A94B90600079DD3 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B5AE617A2A7BA84E00C69AF3 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		B50A2E042A94B90E00079DD3 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				B5AE617D2A7BA84E00C69AF3 /* Info.plist */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
 		B5AE61632A7BA84C00C69AF3 = {
 			isa = PBXGroup;
 			children = (
@@ -64,17 +169,8 @@
 		B5AE616E2A7BA84C00C69AF3 /* ListOfDisneyCharacters */ = {
 			isa = PBXGroup;
 			children = (
-				B5AE616F2A7BA84C00C69AF3 /* AppDelegate.swift */,
-				B5AE61712A7BA84C00C69AF3 /* SceneDelegate.swift */,
-				B5AE61832A7BAE1200C69AF3 /* Model.swift */,
-				B5AE61852A7BAE3E00C69AF3 /* NetworkService.swift */,
-				B5AE61872A7BB02F00C69AF3 /* MainPresenter.swift */,
-				B5AE61732A7BA84C00C69AF3 /* ViewController.swift */,
-				B5AE618B2A7CFA2C00C69AF3 /* TableViewCell.swift */,
-				B5AE61892A7BD43100C69AF3 /* ModuleBuilder.swift */,
-				B5AE61782A7BA84E00C69AF3 /* Assets.xcassets */,
-				B5AE617A2A7BA84E00C69AF3 /* LaunchScreen.storyboard */,
-				B5AE617D2A7BA84E00C69AF3 /* Info.plist */,
+				B50A2E012A94B8F500079DD3 /* Sources */,
+				B50A2E022A94B8FE00079DD3 /* Resources */,
 			);
 			path = ListOfDisneyCharacters;
 			sourceTree = "<group>";
@@ -152,7 +248,7 @@
 				B5AE61862A7BAE3E00C69AF3 /* NetworkService.swift in Sources */,
 				B5AE618C2A7CFA2C00C69AF3 /* TableViewCell.swift in Sources */,
 				B5AE61882A7BB02F00C69AF3 /* MainPresenter.swift in Sources */,
-				B5AE61742A7BA84C00C69AF3 /* ViewController.swift in Sources */,
+				B5AE61742A7BA84C00C69AF3 /* CharacterViewController.swift in Sources */,
 				B5AE61702A7BA84C00C69AF3 /* AppDelegate.swift in Sources */,
 				B5AE618A2A7BD43100C69AF3 /* ModuleBuilder.swift in Sources */,
 				B5AE61722A7BA84C00C69AF3 /* SceneDelegate.swift in Sources */,
@@ -297,7 +393,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H87TDKA3ZG;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ListOfDisneyCharacters/Info.plist;
+				INFOPLIST_FILE = ListOfDisneyCharacters/Resources/Configs/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -324,7 +420,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H87TDKA3ZG;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ListOfDisneyCharacters/Info.plist;
+				INFOPLIST_FILE = ListOfDisneyCharacters/Resources/Configs/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CharacterViewController.swift
 //  ListOfDisneyCharacters
 //
 //  Created by Ваня Сокол on 03.08.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class CharacterViewController: UIViewController {
     var presenter: MainViewPresenterProtocol!
 
     private lazy var tableView: UITableView = {
@@ -50,7 +50,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: - UITableViewDataSource
-extension ViewController: UITableViewDataSource {
+extension CharacterViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.characters.count
     }
@@ -65,7 +65,7 @@ extension ViewController: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
-extension ViewController: UITableViewDelegate {
+extension CharacterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return TableViewConstants.rowHeight
     }
@@ -76,7 +76,7 @@ extension ViewController: UITableViewDelegate {
 }
 
 // MARK: - MainViewProtocol
-extension ViewController: MainViewProtocol {
+extension CharacterViewController: MainViewProtocol {
     func success() {
         tableView.reloadData()
     }
@@ -87,7 +87,6 @@ extension ViewController: MainViewProtocol {
 }
 
 // MARK: - Enums
-
 enum TableViewConstants {
     static let rowHeight: CGFloat = 200
 }
