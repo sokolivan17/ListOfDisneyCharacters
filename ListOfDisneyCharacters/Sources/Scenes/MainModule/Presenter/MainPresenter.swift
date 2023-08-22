@@ -13,33 +13,34 @@ protocol MainViewProtocol: AnyObject {
 }
 
 protocol MainViewPresenterProtocol: AnyObject {
-    var characters: [Character]? { get set }
+    var characters: [CharacterViewModel] { get set }
     init(view: MainViewProtocol, networkService: NetworkServiceProtocol)
     func getCharacters()
 }
 
-class MainPresenter: MainViewPresenterProtocol {
-    var characters: [Character]?
+final class MainPresenter: MainViewPresenterProtocol {
+    var characters = [CharacterViewModel]()
     weak var view: MainViewProtocol?
     let networkService: NetworkServiceProtocol!
-
+    
     required init(view: MainViewProtocol, networkService: NetworkServiceProtocol) {
         self.view = view
         self.networkService = networkService
         getCharacters()
     }
 
-    func getCharacters() {
+    public func getCharacters() {
         networkService.getCharacters { [weak self] result in
-            guard let self = self else { return }
-
             DispatchQueue.main.async {
                 switch result {
                 case .success(let characters):
-                    self.characters = characters
-                    self.view?.success()
+                    self?.characters = characters.compactMap({
+                        CharacterViewModel(title: $0.name,
+                                           imageURL: URL(string: $0.imageUrl))
+                    })
+                    self?.view?.success()
                 case .failure(let error):
-                    self.view?.failure(error: error)
+                    self?.view?.failure(error: error)
                 }
             }
         }
